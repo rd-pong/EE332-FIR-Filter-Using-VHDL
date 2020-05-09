@@ -1,4 +1,17 @@
-# EE332 Project FIR Filter
+# TO-DO
+
+## synthesis power issues
+
+在constraint里写：
+create_clock -period （时钟周期，单位ns） [get_ports （端口名）]
+然后再综合，可以约束时钟
+例如：create_clock -period 20 [get_ports system_clk]
+
+否则会默认用10GHz时钟，功耗非常大
+
+这个是主时钟的语句，还有其他类型的时钟详见：https://blog.csdn.net/FPGADesigner/article/details/82871624?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-9&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-9
+
+# Issues and References
 
 [FIR滤波器理论与实现代码（VHDL）](https://zhuanlan.zhihu.com/p/27048994)
 
