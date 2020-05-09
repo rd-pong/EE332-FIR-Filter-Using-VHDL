@@ -1,0 +1,8 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: D:/ProgramData/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 5b3de598d9d943c0affb58e92e5897ef --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot fir_filter_tb_func_synth xil_defaultlib.fir_filter_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-3290] entity port 'data' does not match with type signed of component port [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sim_1/new/fir_filter_tb.vhd:24]
+ERROR: [VRFC 10-718] formal port <coefficients> does not exist in entity <fir_filter>.  Please compare the definition of block <fir_filter> to its component declaration and its instantion to detect the mismatch. [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sim_1/new/fir_filter_tb.vhd:25]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit fir_filter_tb in library work failed.

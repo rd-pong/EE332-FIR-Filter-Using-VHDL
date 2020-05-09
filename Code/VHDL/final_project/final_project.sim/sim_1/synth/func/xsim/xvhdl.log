@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/Digital_System_Design_Lab/final_project/final_project.sim/sim_1/synth/func/xsim/fir_filter_tb_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fir_filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/types.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sim_1/new/fir_filter_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fir_filter_tb'
