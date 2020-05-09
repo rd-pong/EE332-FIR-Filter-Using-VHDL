@@ -10,8 +10,12 @@
 
 https://www.jianshu.com/p/03cfc5d62794
 
-[How to read text file line by line in vhdl by clk?](https://stackoverflow.com/questions/51386282/how-to-read-text-file-line-by-line-in-vhdl-by-clk)
+~~[How to read text file line by line in vhdl by clk?](https://stackoverflow.com/questions/51386282/how-to-read-text-file-line-by-line-in-vhdl-by-clk)~~
 
-[File reading and writing in VHDL - Part 2](https://vhdlguru.blogspot.com/2011/02/file-reading-and-writing-in-vhdl-part-2.html)
+~~[File reading and writing in VHDL - Part 2](https://vhdlguru.blogspot.com/2011/02/file-reading-and-writing-in-vhdl-part-2.html)~~
 
-**[STIMULUS FILE READ IN TESTBENCH USING TEXTIO](https://vhdlwhiz.com/stimulus-file/)**
+~~[STIMULUS FILE READ IN TESTBENCH USING TEXTIO~~](https://vhdlwhiz.com/stimulus-file/)
+
+The problem is that, for synthesizing, Xilinx assumes every port is either of type std_logic or std_logic_vector (as it generates a new VHDL file that executed the synthesized model, including precise timing simulation). In order for it to work with a synthesizer, I should change the entity definition to std_logic_vector.
+
+[Why am I getting “Entity port d does not match with type unsigned of component portParsing…” when I try to simulate this VHDL?](https://stackoverflow.com/questions/18800137/why-am-i-getting-entity-port-d-does-not-match-with-type-unsigned-of-component-p)

@@ -62,8 +62,7 @@ fclose(f);
     % coefficients_tb(0) <= std_logic_vector(to_signed(-574, coeff_width));
     % coefficients_tb(1) <= std_logic_vector(to_signed(-910, coeff_width));    
 for i = 1:length(coef_scale)
-    % fprintf("coeff_int(" + (i-1) + ") <= std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width));"+"\n");
-    fprintf("std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width)),"+"\n");
+    fprintf("coefficients_tb(" + i-1 + ") <= std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width));"+"\n");
 end
 
 %% signal_scale --> binary 负数为补码符合vhdl
@@ -79,11 +78,11 @@ transformed_signal = float2bin(signal_scale, 16, "databin.txt");
 %     '0000011100100101' AFTER 10ns;
 fprintf(""""+transformed_signal(:,1)'+ """, " +"\n");
 for i = 2:length(transformed_signal)-1
+    % fprintf(""""+transformed_signal(:,i)'+""" AFTER 10ns,"+ "\n");
     fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (i-1)*10 + "ns,"+ "\n");
 end
 fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (length(transformed_signal)-1)*10 + "ns;"+ "\n");
 
 %% Analyze
 result_tb = [-304683096 -859613292 -1077699264 -872841024 -332699388 332699388 858369336 1051339896 858369336 332699388]* 2^(-(IN_SCALE + COEF_SCALE));
-
 figure; plot(result_tb)

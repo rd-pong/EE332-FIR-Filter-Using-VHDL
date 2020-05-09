@@ -13,7 +13,7 @@ USE work.types.ALL;
 USE std.textio.ALL;
 
 ENTITY fir_filter_tb IS
-END fir_filter_tb
+END fir_filter_tb;
 
 ARCHITECTURE beha OF fir_filter_tb IS
     COMPONENT fir_filter IS
@@ -26,13 +26,13 @@ ARCHITECTURE beha OF fir_filter_tb IS
     END COMPONENT fir_filter;
 
     SIGNAL clk_tb : STD_LOGIC; --system clock
-    reset_tb : STD_LOGIC; --active low asynchronous reset
-    data_tb : STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0); --data stream
-    coefficients_tb : coefficient_array; --coefficient array
-    result_tb : STD_LOGIC_VECTOR((data_width + coeff_width + INTEGER(ceil(log2(real(taps)))) - 1) DOWNTO 0)); --filtered result
+    SIGNAL reset_tb : STD_LOGIC; --active low asynchronous reset
+    SIGNAL data_tb : STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0); --data stream
+    SIGNAL coefficients_tb : coefficient_array; --coefficient array
+    SIGNAL result_tb : STD_LOGIC_VECTOR((data_width + coeff_width + INTEGER(ceil(log2(real(taps)))) - 1) DOWNTO 0); --filtered result
 
 BEGIN
-    UUT : fir_filter PORT MAP(clk => clk_tb, reset => reset_tb, data => data_tb coefficients => coefficients_tb, result => result_tb);
+    UUT : fir_filter PORT MAP(clk => clk_tb, reset => reset_tb, data => data_tb, coefficients => coefficients_tb, result => result_tb);
 
     clock_gen : PROCESS
         CONSTANT period : TIME := 10 ns;
