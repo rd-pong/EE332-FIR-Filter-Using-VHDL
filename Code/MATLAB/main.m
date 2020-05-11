@@ -1,12 +1,16 @@
 % analysis of floating-point domain and fixed-point for FIR 
 % FIR coef stem from FilterDesigner tool
+
 %% parameters, test signal, LPF in MATLAB
 clc ,clear, close all;
-fs = 48000; % simpling frequency
+fs = 48000; % sampling frequency
 fpass = 0.2*fs/2;
 fstop = 0.6*fs/2;
 t = 0:1/fs:0.005; % 0.005 s signal 
-signal = sin(2*pi*fpass*t) + sin(2*pi*fstop*t);
+sig_pass = 1*sin(2*pi*fpass*t);
+sig_stop = 2*sin(2*pi*fstop*t);
+
+signal = sig_pass+sig_stop;
 LPF = LPF_generate;
 re_signal = filter(LPF , signal);
 
@@ -17,16 +21,15 @@ re_signal = filter(LPF , signal);
 % subplot(4,1,2);
 % plot(t,re_signal); xlabel('filtered signal without noise');
 % subplot(4,1,3);
-% plot(t, sin(2*pi*fpass*t)); xlabel('sin(2*pi*fpass*t)');
+% plot(t, sig_pass); xlabel('sig-pass');
 % subplot(4,1,4);
-% plot(t, sin(2*pi*fstop*t)); xlabel('sin(2*pi*fstop*t)');
+% plot(t, sig_stop); xlabel('sig-stop');
 
 %% floating-point --> fixed-point --> scale and quantize --> dequantize
 % filter coefficients
 coef = LPF.numerator;
 % define input word length and determined the scaling length
-WL = 16; % input word length
-IN_SCALE = 14; % input scaling length
+IN_SCALE = 10; % input scaling length
 COEF_SCALE = 16; % coefficients scaling length 
 
 % quantize
@@ -41,15 +44,15 @@ err_coef = coef_scale * 2^(-COEF_SCALE) - coef;
 result_approximate = result_scale * 2^(-(IN_SCALE + COEF_SCALE));
 fprintf('error of scaleing signal and the law singal : %d\n' , sumsqr(result_approximate-re_signal));
 
-% % figures
-% figure;
-% subplot(211);plot(t , err_signal); xlabel(['quantized err of signal,','sumsqr:',num2str(sumsqr(err_signal))]);
-% subplot(212);plot(0:length(coef)-1 , err_coef);xlabel(['quantized err of coef,','sumsqr:',num2str(sumsqr(err_coef))]);
-% figure;
-% subplot(211);plot(t,signal_scale);xlabel('scaled signal input');
-% subplot(212);plot(t,result_scale);xlabel('scaled filter output');
-% figure;
-% plot(t, result_approximate-re_signal);xlabel('Error of between fixed-output and float-output');
+% figures
+figure;
+subplot(211);plot(t , err_signal); xlabel(['quantized err of signal,','sumsqr:',num2str(sumsqr(err_signal))]);
+subplot(212);plot(0:length(coef)-1 , err_coef);xlabel(['quantized err of coef,','sumsqr:',num2str(sumsqr(err_coef))]);
+figure;
+subplot(211);plot(t,signal_scale);xlabel('scaled signal input');
+subplot(212);plot(t,result_scale);xlabel('scaled filter output');
+figure;
+plot(t, result_approximate-re_signal);xlabel('Error of between fixed-output and float-output');
 
 %% write out signal_scale to data_in
 f = fopen('datain.txt' , 'w');
@@ -68,7 +71,7 @@ end
 
 %% signal_scale --> binary 负数为补码符合vhdl
 % transformed = float2bin(scaled_value, WIDTH, filename)
-transformed_signal = float2bin(signal_scale, 16, "databin.txt");
+transformed_signal = float2bin(signal_scale, 12, "databin.txt");
 % transformed_coef = float2bin(coef_scale, 16, "coefficients.txt");
 
 %% generate test bench data stream data_tb
@@ -84,6 +87,8 @@ end
 fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (length(transformed_signal)-1)*10 + "ns;"+ "\n");
 
 %% Analyze
-result_tb = [-304683096 -859613292 -1077699264 -872841024 -332699388 332699388 858369336 1051339896 858369336 332699388]* 2^(-(IN_SCALE + COEF_SCALE));
-
-figure; plot(result_tb)
+% when signal = 1*sin(2*pi*fpass*t) + 2*sin(2*pi*fstop*t);
+% result_tb = [265186200 754507840 949625436 770698938 293997508 -293997508 -756497030 -924999044 ]* 2^(-(IN_SCALE + COEF_SCALE));
+% when signal = 1*sin(2*pi*fpass*t) + 2*sin(2*pi*fstop*t);
+result_tb = [14013628 -4298097 -11304911 11304911 4298097 -14013628]* 2^(-(IN_SCALE + COEF_SCALE));
+% figure; plot(result_tb)

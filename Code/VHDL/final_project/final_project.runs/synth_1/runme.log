@@ -14,29 +14,65 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 31320 
+INFO: Helper process launched with PID 12868 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 362.418 ; gain = 100.531
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 361.523 ; gain = 100.184
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'fir_filter' [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:25]
-WARNING: [Synth 8-6014] Unused sequential element sum_reg was removed.  [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'fir_filter' (1#1) [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:25]
+INFO: [Synth 8-638] synthesizing module 'fir_filter' [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:25]
+WARNING: [Synth 8-6014] Unused sequential element sum_reg was removed.  [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'fir_filter' (1#1) [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:25]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 419.266 ; gain = 157.379
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 418.414 ; gain = 157.074
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 419.266 ; gain = 157.379
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 418.414 ; gain = 157.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 418.414 ; gain = 157.074
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/constrs_1/new/constraint.xdc]
+Finished Parsing XDC File [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/constrs_1/new/constraint.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 748.953 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 748.953 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 748.953 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 748.953 ; gain = 487.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k70tfbv676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 419.266 ; gain = 157.379
-INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 748.953 ; gain = 487.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 419.266 ; gain = 157.379
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 748.953 ; gain = 487.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 748.953 ; gain = 487.613
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -44,14 +80,13 @@ Report RTL Partitions:
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Registers : 
-	               37 Bit    Registers := 1     
-	               16 Bit    Registers := 20    
+	               33 Bit    Registers := 1     
+	               12 Bit    Registers := 20    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -62,8 +97,8 @@ Hierarchical RTL Component report
 Module fir_filter 
 Detailed RTL Component Info : 
 +---Registers : 
-	               37 Bit    Registers := 1     
-	               16 Bit    Registers := 20    
+	               33 Bit    Registers := 1     
+	               12 Bit    Registers := 20    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -76,7 +111,6 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
@@ -98,34 +132,34 @@ DSP Report: operator products[16] is absorbed into DSP result0.
 DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x504).
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[15] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x3f66f).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x3ffff66f)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[14] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x3ed77).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x3fffed77)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[13] is absorbed into DSP result0.
 DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x1a0).
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[12] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x32db).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x32db)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[11] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x5e13).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x5e13)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[10] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x5e13).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x5e13)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[9] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x32db).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x32db)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[8] is absorbed into DSP result0.
 DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x1a0).
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[7] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x3ed77).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x3fffed77)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[6] is absorbed into DSP result0.
-DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x3f66f).
+DSP Report: Generating DSP result0, operation Mode is: PCIN+(A:0x3ffff66f)*B.
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[5] is absorbed into DSP result0.
 DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x504).
@@ -141,74 +175,79 @@ DSP Report: Generating DSP result0, operation Mode is: PCIN+A*(B:0x3fc72).
 DSP Report: operator result0 is absorbed into DSP result0.
 DSP Report: operator products[1] is absorbed into DSP result0.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 531.641 ; gain = 269.754
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 748.953 ; gain = 487.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping  Report (see note below)
-+------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fir_filter  | A*(B:0x3fdc2)      | 16     | 11     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3fdc2) | 16     | 11     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3fc72) | 16     | 11     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x12d)   | 16     | 10     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x725)   | 16     | 12     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x504)   | 16     | 12     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3f66f) | 16     | 13     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3ed77) | 16     | 14     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x1a0)   | 16     | 10     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x32db)  | 16     | 15     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x5e13)  | 16     | 16     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x5e13)  | 16     | 16     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x32db)  | 16     | 15     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x1a0)   | 16     | 10     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3ed77) | 16     | 14     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3f66f) | 16     | 13     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x504)   | 16     | 12     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x725)   | 16     | 12     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x12d)   | 16     | 10     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_filter  | PCIN+A*(B:0x3fc72) | 16     | 11     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping           | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fir_filter  | A*(B:0x3fdc2)         | 12     | 11     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x3fdc2)    | 12     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x3fc72)    | 12     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x12d)      | 12     | 10     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x725)      | 12     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x504)      | 12     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x3ffff66f)*B | 13     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x3fffed77)*B | 14     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x1a0)      | 12     | 10     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x32db)*B     | 15     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x5e13)*B     | 16     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x5e13)*B     | 16     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x32db)*B     | 15     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x1a0)      | 12     | 10     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x3fffed77)*B | 14     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+(A:0x3ffff66f)*B | 13     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x504)      | 12     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x725)      | 12     | 12     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x12d)      | 12     | 10     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_filter  | PCIN+A*(B:0x3fc72)    | 12     | 11     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 774.441 ; gain = 513.102
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 531.641 ; gain = 269.754
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 779.316 ; gain = 517.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -219,29 +258,29 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:37]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:37]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:36]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -265,7 +304,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -278,7 +317,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -290,25 +329,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -326,40 +365,40 @@ Report Cell Usage:
 +------+--------+------+
 |1     |BUFG    |     1|
 |2     |DSP48E1 |    20|
-|3     |LUT2    |    37|
-|4     |FDCE    |   321|
-|5     |IBUF    |    18|
-|6     |OBUF    |    37|
+|3     |LUT2    |    33|
+|4     |FDCE    |   241|
+|5     |IBUF    |    14|
+|6     |OBUF    |    33|
 +------+--------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   434|
+|1     |top      |       |   342|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
-Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 540.664 ; gain = 278.777
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 790.230 ; gain = 198.352
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.230 ; gain = 528.891
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 649.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 790.230 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+54 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 649.527 ; gain = 400.723
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 649.527 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 790.230 ; gain = 541.965
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 790.230 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'D:/Documents/Digital_System_Design_Lab/final_project/final_project.runs/synth_1/fir_filter.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.runs/synth_1/fir_filter.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file fir_filter_utilization_synth.rpt -pb fir_filter_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat May  9 17:39:24 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon May 11 16:18:03 2020...
