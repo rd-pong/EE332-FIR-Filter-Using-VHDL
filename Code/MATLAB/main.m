@@ -7,8 +7,8 @@ fs = 48000; % sampling frequency
 fpass = 0.2*fs/2;
 fstop = 0.6*fs/2;
 t = 0:1/fs:0.005; % 0.005 s signal 
-sig_pass = 1*sin(2*pi*fpass*t);
-sig_stop = 2*sin(2*pi*fstop*t);
+sig_pass = 0.5*sin(2*pi*fpass*t);
+sig_stop = 0.3*sin(2*pi*fstop*t);
 
 signal = sig_pass+sig_stop;
 LPF = LPF_generate;
@@ -92,3 +92,13 @@ fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (length(transformed_signal)-
 % when signal = 1*sin(2*pi*fpass*t) + 2*sin(2*pi*fstop*t);
 result_tb = [14013628 -4298097 -11304911 11304911 4298097 -14013628]* 2^(-(IN_SCALE + COEF_SCALE));
 % figure; plot(result_tb)
+
+%% 
+filter_order = 19;
+% data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +
+% 				tap(1) * SIGNED(coeff_int(1)) ;
+fprintf("data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +"+ "\n");
+for i = 1:filter_order-2
+    fprintf("tap(" + i + ") * SIGNED(coeff_int(" + i + ")) +" +"\n");
+end
+fprintf("tap(" + (filter_order-1) + ") * SIGNED(coeff_int(" + (filter_order-1) + ")));" +"\n");

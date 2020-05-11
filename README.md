@@ -26,6 +26,8 @@ https://www.jianshu.com/p/03cfc5d62794
 
 ~~[STIMULUS FILE READ IN TESTBENCH USING TEXTIO~~](https://vhdlwhiz.com/stimulus-file/)
 
+http://www.ee.ic.ac.uk/pcheung/teaching/ee3_dsd/fir.pdf
+
 ## synthesis error
 
 The problem is that, for synthesizing, Xilinx assumes every port is either of type std_logic or std_logic_vector (as it generates a new VHDL file that executed the synthesized model, including precise timing simulation). In order for it to work with a synthesizer, I should change the entity definition to std_logic_vector.
