@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1589185089">
+  <File Type="BITSTR-BMM" Name="fir_filter_bd.bmm"/>
   <File Type="ROUTE-PWR" Name="fir_filter_power_routed.rpt"/>
   <File Type="PA-TCL" Name="fir_filter.tcl"/>
-  <File Type="BITSTR-BMM" Name="fir_filter_bd.bmm"/>
+  <File Type="OPT-DCP" Name="fir_filter_opt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="fir_filter_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="fir_filter_reports.tcl"/>
-  <File Type="OPT-DCP" Name="fir_filter_opt.dcp"/>
   <File Type="OPT-DRC" Name="fir_filter_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="fir_filter.hwdef"/>
   <File Type="PWROPT-DCP" Name="fir_filter_pwropt.dcp"/>
@@ -25,19 +25,20 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="fir_filter_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="fir_filter_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="fir_filter_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="fir_filter_drc_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="fir_filter.ltx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="fir_filter_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="fir_filter_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="fir_filter.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="fir_filter_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="fir_filter_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fir_filter_methodology_drc_routed.pb"/>
   <File Type="BITSTR-SYSDEF" Name="fir_filter.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fir_filter_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="fir_filter_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="fir_filter_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="fir_filter_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="fir_filter_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="fir_filter_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="fir_filter_timing_summary_routed.rpx"/>
+  <File Type="RDI-RDI" Name="fir_filter.vdi"/>
   <File Type="ROUTE-CLK" Name="fir_filter_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="fir_filter_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="fir_filter_bus_skew_routed.pb"/>
@@ -48,19 +49,19 @@
   <File Type="BITSTR-RBT" Name="fir_filter.rbt"/>
   <File Type="BITSTR-NKY" Name="fir_filter.nky"/>
   <File Type="BG-DRC" Name="fir_filter.drc"/>
-  <File Type="RDI-RDI" Name="fir_filter.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/types.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/fir_filter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/types.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>

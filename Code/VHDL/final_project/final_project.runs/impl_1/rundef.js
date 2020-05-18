@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "init_design", "begin" );
+ISETouchFile( "write_bitstream", "begin" );
 ISEStep( "vivado",
          "-log fir_filter.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source fir_filter.tcl -notrace" );
 

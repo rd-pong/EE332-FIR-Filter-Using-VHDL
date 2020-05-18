@@ -1,7 +1,2 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-ERROR: Array sizes do not match, left array has 33 elements, right array has 28 elements
-Time: 15 ns  Iteration: 1  Process: /fir_filter_tb/UUT/line__31
-  File: D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd
-
-HDL Line: D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/sources_1/new/fir_filter.vhd:44

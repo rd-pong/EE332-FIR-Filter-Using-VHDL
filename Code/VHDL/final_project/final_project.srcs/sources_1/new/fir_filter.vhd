@@ -1,107 +1,68 @@
---------------------------------------------------------------------------------
---
---   FileName:         fir_filter.vhd
---   Dependencies:     types.vhd
---    
---------------------------------------------------------------------------------
-
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE ieee.math_real.ALL;
-USE work.types.ALL;
+USE ieee.std_logic_unsigned.ALL;
+USE std.textio.ALL;
 
 ENTITY fir_filter IS
 	PORT (
-		clk : IN STD_LOGIC; --system clock
-		reset : IN STD_LOGIC; --active high asynchronous reset
-		data : IN STD_LOGIC_VECTOR(data_width - 1 DOWNTO 0); --data stream
-		result : OUT STD_LOGIC_VECTOR((data_width + coeff_width + INTEGER(ceil(log2(real(taps)))) - 1) DOWNTO 0)); --filtered result
+		clk : IN std_logic;
+		rstn : IN std_logic;
+		data_In : IN std_logic_vector(11 DOWNTO 0);
+		data_Out : OUT std_logic_vector(32 DOWNTO 0)
+	);
 END fir_filter;
 
---------------------------------------------------------------------------------
+----------------------------------------
 -- direct form without any optimization    
---------------------------------------------------------------------------------
+----------------------------------------
 ARCHITECTURE direct_basic OF fir_filter IS
-	SIGNAL data_pipeline : data_array; --pipeline of historic data values
-	SIGNAL sum : SIGNED((data_width + coeff_width + INTEGER(ceil(log2(real(taps)))) - 1) DOWNTO 0); --sum of products
+	TYPE array_TAPxIn IS ARRAY(0 TO 19) OF signed(11 DOWNTO 0); --input bit 12
+	TYPE array_TAP_add IS ARRAY(0 TO 9) OF std_logic_vector(12 DOWNTO 0); --系数简化加法器
+	TYPE array_3xx IS ARRAY(0 TO 9) OF std_logic_vector(28 DOWNTO 0); --系数的位宽加上输入数据的位宽
+	TYPE array_TAPxOut IS ARRAY(0 TO 19) OF std_logic_vector(32 DOWNTO 0); --input bit 33
+	TYPE coefficient_array IS ARRAY (0 TO 19) OF STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+	SIGNAL c_t_mul : array_3xx;
+	SIGNAL tap_add : array_TAP_add;
+	SIGNAL tap : array_TAPxIn;
+	SIGNAL coeff_int : coefficient_array;
+	SIGNAL cnt : array_TAPxOut;
 
 BEGIN
+	coeff_int(0) <= std_logic_vector(to_signed(-574, 16));
+	coeff_int(1) <= std_logic_vector(to_signed(-910, 16));
+	coeff_int(2) <= std_logic_vector(to_signed(301, 16));
+	coeff_int(3) <= std_logic_vector(to_signed(1829, 16));
+	coeff_int(4) <= std_logic_vector(to_signed(1284, 16));
+	coeff_int(5) <= std_logic_vector(to_signed(-2449, 16));
+	coeff_int(6) <= std_logic_vector(to_signed(-4745, 16));
+	coeff_int(7) <= std_logic_vector(to_signed(416, 16));
+	coeff_int(8) <= std_logic_vector(to_signed(13019, 16));
+	coeff_int(9) <= std_logic_vector(to_signed(24083, 16));
+	coeff_int(10) <= std_logic_vector(to_signed(24083, 16));
+	coeff_int(11) <= std_logic_vector(to_signed(13019, 16));
+	coeff_int(12) <= std_logic_vector(to_signed(416, 16));
+	coeff_int(13) <= std_logic_vector(to_signed(-4745, 16));
+	coeff_int(14) <= std_logic_vector(to_signed(-2449, 16));
+	coeff_int(15) <= std_logic_vector(to_signed(1284, 16));
+	coeff_int(16) <= std_logic_vector(to_signed(1829, 16));
+	coeff_int(17) <= std_logic_vector(to_signed(301, 16));
+	coeff_int(18) <= std_logic_vector(to_signed(-910, 16));
+	coeff_int(19) <= std_logic_vector(to_signed(-574, 16));
 
-	PROCESS (clk, reset)
+	PROCESS (clk, rstn)
 	BEGIN
-
-		IF (reset = '1') THEN --asynchronous reset
-
-			data_pipeline <= (OTHERS => (OTHERS => '0')); --clear data pipeline values
-			result <= (OTHERS => '0'); --clear result output
-
-		ELSIF (clk'EVENT AND clk = '1') THEN --not reset
-
-			data_pipeline <= SIGNED(data) & data_pipeline(0 TO taps - 2); --shift new data into data pipeline
-
-			sum <= (OTHERS => '0'); --initialize sum
-			sum <= data_pipeline(0) * SIGNED(coeff_int(0)) +
-				data_pipeline(1) * SIGNED(coeff_int(1)) +
-				data_pipeline(2) * SIGNED(coeff_int(2)) +
-				data_pipeline(3) * SIGNED(coeff_int(3)) +
-				data_pipeline(4) * SIGNED(coeff_int(4)) +
-				data_pipeline(5) * SIGNED(coeff_int(5)) +
-				data_pipeline(6) * SIGNED(coeff_int(6)) +
-				data_pipeline(7) * SIGNED(coeff_int(7)) +
-				data_pipeline(8) * SIGNED(coeff_int(8)) +
-				data_pipeline(9) * SIGNED(coeff_int(9)) +
-				data_pipeline(10) * SIGNED(coeff_int(10)) +
-				data_pipeline(11) * SIGNED(coeff_int(11)) +
-				data_pipeline(12) * SIGNED(coeff_int(12)) +
-				data_pipeline(13) * SIGNED(coeff_int(13)) +
-				data_pipeline(14) * SIGNED(coeff_int(14)) +
-				data_pipeline(15) * SIGNED(coeff_int(15)) +
-				data_pipeline(16) * SIGNED(coeff_int(16)) +
-				data_pipeline(17) * SIGNED(coeff_int(17)) +
-				data_pipeline(18) * SIGNED(coeff_int(18));
-			result <= STD_LOGIC_VECTOR(sum); --output result
-
+		IF (rstn = '1') THEN --asynchronous rstn
+			tap <= (OTHERS => (OTHERS => '0'));
+		ELSIF (clk'EVENT AND clk = '1') THEN --not rstn
+			tap(0) <= signed(data_In);
+			tap(1 TO 19) <= tap(0 TO 18);
+			-- data_In_OTemp <= tap(0)*(-2) + tap(1)*4 + tap(2)*(-2)
+			FOR i IN 0 TO 19 LOOP
+				cnt(i) <= ("00000" & std_logic_vector(tap(i) * SIGNED(coeff_int(i))));
+			END LOOP;
 		END IF;
 	END PROCESS;
-
+	data_Out <= cnt(0) + cnt(1) + cnt(2) + cnt(3) + cnt(4) + cnt(5) + cnt(6) + cnt(7) + cnt(8) + cnt(9) + cnt(10) + cnt(11) + cnt(12) + cnt(13) + cnt(14) + cnt(15) + cnt(16) + cnt(17) + cnt(18) + cnt(19);
 END direct_basic;
-
---------------------------------------------------------------------------------
--- direct form rewrite 1
---------------------------------------------------------------------------------
--- ARCHITECTURE direct_rewrite OF fir_filter IS
--- 	TYPE array_TAPx11 IS ARRAY(0 TO taps - 1) OF signed(data_width - 1 DOWNTO 0); --input bit 12
--- 	SIGNAL tap : array_TAPx11;
-
--- BEGIN
--- 	PROCESS (clk, reset)
--- 	BEGIN
--- 		IF (reset = '1') THEN --asynchronous reset
--- 			tap <= (OTHERS => (OTHERS => '0'));
--- 		ELSIF (clk'EVENT AND clk = '1') THEN --not reset
--- 			tap(0) <= SIGNED(data);
--- 			tap(1 TO taps - 1) <= tap(0 TO taps - 2);
--- 			-- data_OTemp <= tap(0)*(-2) + tap(1)*4 + tap(2)*(-2)
--- 			result <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +
--- 				tap(1) * SIGNED(coeff_int(1)) +
--- 				tap(2) * SIGNED(coeff_int(2)) +
--- 				tap(3) * SIGNED(coeff_int(3)) +
--- 				tap(4) * SIGNED(coeff_int(4)) +
--- 				tap(5) * SIGNED(coeff_int(5)) +
--- 				tap(6) * SIGNED(coeff_int(6)) +
--- 				tap(7) * SIGNED(coeff_int(7)) +
--- 				tap(8) * SIGNED(coeff_int(8)) +
--- 				tap(9) * SIGNED(coeff_int(9)) +
--- 				tap(10) * SIGNED(coeff_int(10)) +
--- 				tap(11) * SIGNED(coeff_int(11)) +
--- 				tap(12) * SIGNED(coeff_int(12)) +
--- 				tap(13) * SIGNED(coeff_int(13)) +
--- 				tap(14) * SIGNED(coeff_int(14)) +
--- 				tap(15) * SIGNED(coeff_int(15)) +
--- 				tap(16) * SIGNED(coeff_int(16)) +
--- 				tap(17) * SIGNED(coeff_int(17)) +
--- 				tap(18) * SIGNED(coeff_int(18)));
--- 		END IF;
--- 	END PROCESS;
--- END direct_rewrite;

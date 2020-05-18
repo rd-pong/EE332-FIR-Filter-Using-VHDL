@@ -12,7 +12,8 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.math_real
-Compiling package xil_defaultlib.types
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
 Compiling architecture direct_basic of entity xil_defaultlib.fir_filter [fir_filter_default]
 Compiling architecture beha of entity xil_defaultlib.fir_filter_tb
 Built simulation snapshot fir_filter_tb_behav
