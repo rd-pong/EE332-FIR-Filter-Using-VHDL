@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Mon May 11 16:19:34 2020
+| Date             : Mon May 18 15:39:38 2020
 | Host             : FuckVivadoSupportChinese running 64-bit major release  (build 9200)
 | Command          : report_power -file fir_filter_power_routed.rpt -pb fir_filter_power_summary_routed.pb -rpx fir_filter_power_routed.rpx
 | Design           : fir_filter
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.137        |
+| Total On-Chip Power (W)  | 0.150        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.056        |
+| Dynamic (W)              | 0.069        |
 | Device Static (W)        | 0.081        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 84.7         |
@@ -52,16 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.003 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      278 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       17 |     41000 |            0.04 |
-|   Register     |    <0.001 |      241 |     82000 |            0.29 |
+| Clocks         |     0.002 |        3 |       --- |             --- |
+| Slice Logic    |     0.008 |      847 |       --- |             --- |
+|   LUT as Logic |     0.008 |      333 |     41000 |            0.81 |
+|   CARRY4       |    <0.001 |       75 |     10250 |            0.73 |
+|   Register     |    <0.001 |      240 |     82000 |            0.29 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     0.002 |     1280 |       --- |             --- |
-| DSPs           |     0.020 |       20 |       240 |            8.33 |
+| Signals        |     0.008 |     1328 |       --- |             --- |
+| DSPs           |     0.019 |       20 |       240 |            8.33 |
 | I/O            |     0.031 |       47 |       300 |           15.67 |
 | Static Power   |     0.081 |          |           |                 |
-| Total          |     0.137 |          |           |                 |
+| Total          |     0.150 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.046 |       0.025 |      0.022 |
+| Vccint    |       1.000 |     0.059 |       0.038 |      0.022 |
 | Vccaux    |       1.800 |     0.015 |       0.003 |      0.012 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +142,7 @@ Table of Contents
 +------------+-----------+
 | Name       | Power (W) |
 +------------+-----------+
-| fir_filter |     0.056 |
+| fir_filter |     0.069 |
 +------------+-----------+
 
 

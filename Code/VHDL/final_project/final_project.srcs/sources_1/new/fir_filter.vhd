@@ -18,13 +18,9 @@ END fir_filter;
 ----------------------------------------
 ARCHITECTURE direct_basic OF fir_filter IS
 	TYPE array_TAPxIn IS ARRAY(0 TO 19) OF signed(11 DOWNTO 0); --input bit 12
-	TYPE array_TAP_add IS ARRAY(0 TO 9) OF std_logic_vector(12 DOWNTO 0); --系数简化加法器
-	TYPE array_3xx IS ARRAY(0 TO 9) OF std_logic_vector(28 DOWNTO 0); --系数的位宽加上输入数据的位宽
 	TYPE array_TAPxOut IS ARRAY(0 TO 19) OF std_logic_vector(32 DOWNTO 0); --input bit 33
 	TYPE coefficient_array IS ARRAY (0 TO 19) OF STD_LOGIC_VECTOR(15 DOWNTO 0);
 
-	SIGNAL c_t_mul : array_3xx;
-	SIGNAL tap_add : array_TAP_add;
 	SIGNAL tap : array_TAPxIn;
 	SIGNAL coeff_int : coefficient_array;
 	SIGNAL cnt : array_TAPxOut;
@@ -64,5 +60,7 @@ BEGIN
 			END LOOP;
 		END IF;
 	END PROCESS;
+	
 	data_Out <= cnt(0) + cnt(1) + cnt(2) + cnt(3) + cnt(4) + cnt(5) + cnt(6) + cnt(7) + cnt(8) + cnt(9) + cnt(10) + cnt(11) + cnt(12) + cnt(13) + cnt(14) + cnt(15) + cnt(16) + cnt(17) + cnt(18) + cnt(19);
+
 END direct_basic;

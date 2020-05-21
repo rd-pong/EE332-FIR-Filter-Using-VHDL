@@ -90,7 +90,7 @@ fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (length(transformed_signal)-
 % when signal = 1*sin(2*pi*fpass*t) + 2*sin(2*pi*fstop*t);
 % result_tb = [265186200 754507840 949625436 770698938 293997508 -293997508 -756497030 -924999044 ]* 2^(-(IN_SCALE + COEF_SCALE));
 % when signal = 0.5*sin(2*pi*fpass*t) + 0.3*sin(2*pi*fstop*t);
-result_tb = [2157803155 2174263224 2180403786 2174263224 2157803155 2137164141]* 2^(-(IN_SCALE + COEF_SCALE));
+result_tb = [2157803155 2174263224 2180403786 2174263224 2157803155 ]* 2^(-(IN_SCALE + COEF_SCALE));
 
 % figure; plot(result_tb)
 
