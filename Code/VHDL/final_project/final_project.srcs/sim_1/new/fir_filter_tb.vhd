@@ -38,7 +38,7 @@ BEGIN
 
     --data_In stream input
     data_In_tb <=
-        "000000000000",
+        "000000000000", 
         "001001010001" AFTER 10ns,
         "000100110010" AFTER 20ns,
         "000100110010" AFTER 30ns,

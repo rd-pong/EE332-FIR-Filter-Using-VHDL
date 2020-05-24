@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1589787501">
-  <File Type="OPT-HWDEF" Name="fir_filter.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="fir_filter_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="fir_filter.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1590281149">
   <File Type="BITSTR-BMM" Name="fir_filter_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="fir_filter_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="fir_filter_timing_summary_init.rpt"/>
@@ -13,6 +10,7 @@
   <File Type="ROUTE-PWR-SUM" Name="fir_filter_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="fir_filter_reports.tcl"/>
   <File Type="OPT-DRC" Name="fir_filter_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="fir_filter.hwdef"/>
   <File Type="PWROPT-DCP" Name="fir_filter_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="fir_filter_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="fir_filter_timing_summary_pwropted.rpt"/>
@@ -24,6 +22,7 @@
   <File Type="PLACE-CTRL" Name="fir_filter_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="fir_filter_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="fir_filter_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="fir_filter.bgn"/>
   <File Type="PLACE-TIMING" Name="fir_filter_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="fir_filter_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="fir_filter.bin"/>
@@ -53,6 +52,7 @@
   <File Type="ROUTE-TIMING-RPX" Name="fir_filter_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="fir_filter_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="fir_filter_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="fir_filter_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="fir_filter_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="fir_filter_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="fir_filter_postroute_physopt.dcp"/>
@@ -66,7 +66,6 @@
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="fir_filter_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="fir_filter.rbt"/>
   <File Type="BITSTR-NKY" Name="fir_filter.nky"/>
-  <File Type="BG-BGN" Name="fir_filter.bgn"/>
   <File Type="BG-DRC" Name="fir_filter.drc"/>
   <File Type="RDI-RDI" Name="fir_filter.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
@@ -82,6 +81,12 @@
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/fir_filter_s2.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
       </FileInfo>
     </File>
     <Config>

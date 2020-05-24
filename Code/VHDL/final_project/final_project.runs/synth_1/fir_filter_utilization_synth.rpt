@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon May 18 15:27:18 2020
+| Date         : Sun May 24 08:39:20 2020
 | Host         : FuckVivadoSupportChinese running 64-bit major release  (build 9200)
 | Command      : report_utilization -file fir_filter_utilization_synth.rpt -pb fir_filter_utilization_synth.pb
 | Design       : fir_filter
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  333 |     0 |     41000 |  0.81 |
-|   LUT as Logic          |  333 |     0 |     41000 |  0.81 |
+| Slice LUTs*             |    1 |     0 |     41000 | <0.01 |
+|   LUT as Logic          |    1 |     0 |     41000 | <0.01 |
 |   LUT as Memory         |    0 |     0 |     13400 |  0.00 |
 | Slice Registers         |  240 |     0 |     82000 |  0.29 |
 |   Register as Flip Flop |  240 |     0 |     82000 |  0.29 |
@@ -80,8 +80,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |   20 |     0 |       240 |  8.33 |
-|   DSP48E1 only |   20 |       |           |       |
+| DSPs           |   29 |     0 |       240 | 12.08 |
+|   DSP48E1 only |   29 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -153,15 +153,9 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     |  240 |        Flop & Latch |
-| LUT3     |  239 |                 LUT |
-| LUT4     |  198 |                 LUT |
-| CARRY4   |   75 |          CarryLogic |
-| LUT6     |   43 |                 LUT |
-| LUT5     |   40 |                 LUT |
 | OBUF     |   33 |                  IO |
-| DSP48E1  |   20 |    Block Arithmetic |
+| DSP48E1  |   29 |    Block Arithmetic |
 | IBUF     |   14 |                  IO |
-| LUT2     |    7 |                 LUT |
 | LUT1     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+

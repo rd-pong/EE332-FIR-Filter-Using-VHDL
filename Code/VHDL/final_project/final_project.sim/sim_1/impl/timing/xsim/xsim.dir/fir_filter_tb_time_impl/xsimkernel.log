@@ -1,7 +1,7 @@
-Running: xsim.dir/fir_filter_tb_time_impl/xsimk.exe -simmode gui -wdb fir_filter_tb_time_impl.wdb -simrunnum 0 -socket 57073
+Running: xsim.dir/fir_filter_tb_time_impl/xsimk.exe -simmode gui -wdb fir_filter_tb_time_impl.wdb -simrunnum 0 -socket 53114
 Design successfully loaded
-Design Loading Memory Usage: 27548 KB (Peak: 27548 KB)
-Design Loading CPU Usage: 374 ms
+Design Loading Memory Usage: 23136 KB (Peak: 23136 KB)
+Design Loading CPU Usage: 358 ms
 Simulation completed
-Simulation Memory Usage: 42800 KB (Peak: 42800 KB)
-Simulation CPU Usage: 5937 ms
+Simulation Memory Usage: 28544 KB (Peak: 28544 KB)
+Simulation CPU Usage: 1374 ms

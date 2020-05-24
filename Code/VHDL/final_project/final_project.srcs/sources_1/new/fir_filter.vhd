@@ -9,7 +9,7 @@ ENTITY fir_filter IS
 		clk : IN std_logic;
 		rstn : IN std_logic;
 		data_In : IN std_logic_vector(11 DOWNTO 0);
-		data_Out : OUT std_logic_vector(32 DOWNTO 0)
+		data_Out : OUT std_logic_vector(32 DOWNTO 0) --12+16+log20
 	);
 END fir_filter;
 
@@ -56,7 +56,8 @@ BEGIN
 			tap(1 TO 19) <= tap(0 TO 18);
 			-- data_In_OTemp <= tap(0)*(-2) + tap(1)*4 + tap(2)*(-2)
 			FOR i IN 0 TO 19 LOOP
-				cnt(i) <= ("00000" & std_logic_vector(tap(i) * SIGNED(coeff_int(i))));
+				-- cnt(i) <= ("00000" & std_logic_vector(tap(i) * SIGNED(coeff_int(i))));
+				cnt(i) <= std_logic_vector(   resize(tap(i)* SIGNED(coeff_int(i)), 33)   );
 			END LOOP;
 		END IF;
 	END PROCESS;

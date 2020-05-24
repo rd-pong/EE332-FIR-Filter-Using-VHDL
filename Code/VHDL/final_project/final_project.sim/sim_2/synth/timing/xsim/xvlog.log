@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.sim/sim_2/synth/timing/xsim/fir_filter_s2_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_filter
+INFO: [VRFC 10-311] analyzing module glbl

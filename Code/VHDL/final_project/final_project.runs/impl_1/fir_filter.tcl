@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
@@ -67,12 +68,16 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.runs/impl_1/fir_filter.dcp
+  create_project -in_memory -part xc7k70tfbv676-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.cache/wt [current_project]
   set_property parent.project_path D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.xpr [current_project]
   set_property ip_output_repo D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.runs/synth_1/fir_filter.dcp
+  read_xdc D:/Documents/Digital_System_Design_Lab/Project/Code/VHDL/final_project/final_project.srcs/constrs_1/new/constraint.xdc
+  link_design -top fir_filter -part xc7k70tfbv676-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

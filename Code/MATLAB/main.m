@@ -95,7 +95,7 @@ result_tb = [2157803155 2174263224 2180403786 2174263224 2157803155 ]* 2^(-(IN_S
 % figure; plot(result_tb)
 
 %% 
-filter_order = 19;
+filter_order = length(LPF.numerator);
 % data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +
 % 				tap(1) * SIGNED(coeff_int(1)) ;
 fprintf("data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +"+ "\n");

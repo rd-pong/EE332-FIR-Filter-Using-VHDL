@@ -4,7 +4,7 @@
 %% parameters, test signal, LPF in MATLAB
 clc ,clear, close all;
 fs = 48000; % sampling frequency
-fpass = 0.01*fs/2;
+fpass = 0.04*fs/2;
 fstop = 0.2*fs/2;
 t = 0:1/fs:0.005; % 0.005 s signal 
 sig_pass = 0.5*sin(2*pi*fpass*t);
@@ -65,8 +65,8 @@ fclose(f);
     % coefficients_tb(0) <= std_logic_vector(to_signed(-574, coeff_width));
     % coefficients_tb(1) <= std_logic_vector(to_signed(-910, coeff_width));    
 for i = 1:length(coef_scale)
-    % fprintf("coeff_int(" + (i-1) + ") <= std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width));"+"\n");
-    fprintf("std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width)),"+"\n");
+    fprintf("coeff_int(" + (i-1) + ") <= std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width));"+"\n");
+    % fprintf("std_logic_vector(to_signed(" + coef_scale(i) + ", coeff_width)),"+"\n");
 end
 
 %% signal_scale --> binary 负数为补码符合vhdl
@@ -87,15 +87,13 @@ end
 fprintf(""""+transformed_signal(:,i)'+""" AFTER " + (length(transformed_signal)-1)*10 + "ns;"+ "\n");
 
 %% Analyze
-% when signal = 1*sin(2*pi*fpass*t) + 2*sin(2*pi*fstop*t);
-% result_tb = [265186200 754507840 949625436 770698938 293997508 -293997508 -756497030 -924999044 ]* 2^(-(IN_SCALE + COEF_SCALE));
 % when signal = 0.5*sin(2*pi*fpass*t) + 0.3*sin(2*pi*fstop*t);
 result_tb = [2157803155 2174263224 2180403786 2174263224 2157803155 ]* 2^(-(IN_SCALE + COEF_SCALE));
 
 % figure; plot(result_tb)
 
 %% 
-filter_order = 52;
+filter_order = length(LPF.numerator);
 % data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +
 % 				tap(1) * SIGNED(coeff_int(1)) ;
 fprintf("data_OTemp <= std_logic_vector(tap(0) * SIGNED(coeff_int(0)) +"+ "\n");
@@ -103,3 +101,10 @@ for i = 1:filter_order-2
     fprintf("tap(" + i + ") * SIGNED(coeff_int(" + i + ")) +" +"\n");
 end
 fprintf("tap(" + (filter_order-1) + ") * SIGNED(coeff_int(" + (filter_order-1) + ")));" +"\n");
+
+%% data_Out <= cnt(0) + cnt(1) + ...
+fprintf("data_Out <=");
+for i = 0:filter_order-2
+    fprintf("cnt(" + i + ")+ ");
+end
+fprintf("cnt(" + (filter_order-1) +");\n");
