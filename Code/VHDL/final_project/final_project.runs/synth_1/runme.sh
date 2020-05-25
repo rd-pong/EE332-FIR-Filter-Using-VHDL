@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log fir_filter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fir_filter.tcl
+EAStep vivado -log fir_filter_s2.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fir_filter_s2.tcl
