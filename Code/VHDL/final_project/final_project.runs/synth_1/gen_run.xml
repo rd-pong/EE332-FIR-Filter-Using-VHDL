@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1590390402">
   <File Type="PA-TCL" Name="fir_filter_s2.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="fir_filter_s2_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="fir_filter_s2_reports.tcl"/>
   <File Type="RDS-RDS" Name="fir_filter_s2.vds"/>
   <File Type="RDS-UTIL" Name="fir_filter_s2_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="fir_filter_s2_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="fir_filter_s2.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fir_filter_s2_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="fir_filter_s2_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/fir_filter_s2.vhd">

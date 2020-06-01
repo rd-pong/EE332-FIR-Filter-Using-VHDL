@@ -1,4 +1,4 @@
-function Hd = LPF_generate
+function Hd = LPF_generate_s2
 %UNTITLED Returns a discrete-time filter object.
 
 % MATLAB Codes
