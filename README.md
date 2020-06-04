@@ -1,11 +1,3 @@
-# TO-DO
-
-## transposed form
-
-## coefficient symmetry
-
-
-
 # Issues and References
 
 [FIR滤波器理论与实现代码（VHDL）](https://zhuanlan.zhihu.com/p/27048994)
